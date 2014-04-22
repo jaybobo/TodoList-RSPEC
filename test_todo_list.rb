@@ -1,6 +1,6 @@
 require 'rspec'
 require 'rspec/expectations'
-require_relative '../task.rb'
+require_relative 'task.rb'
 
 RSpec::Matchers.define :be_boolean do
   match do |actual|
