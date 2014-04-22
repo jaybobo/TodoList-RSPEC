@@ -1,8 +1,9 @@
 require 'rspec'
 require_relative 'task.rb'
 
+
 describe Task do
-  let(:task) { Task.new('walk the dog', 'take the dog for a walk around the block', false, DateTime.now) }
+  let(:task) { Task.new('walk the dog', 'take the dog for a walk around the block') }
   context "#initialize" do
     it "creates a task object" do
       expect(task).to be_an_instance_of Task
@@ -26,15 +27,19 @@ describe Task do
   end
 
   context "#status" do
-    it "should return the status" do
-      expect(task.status).to eq(false)
+    it "default status should return incomplete" do
+      expect(task.instance_variable_get(:@status)).to eq("incomplete")
     end
   end
 
   context "#created_at" do
-    it "should return the created at time" do
-      expect(task.status).to is_a?(DateTime)
+    it "should return a time at initialization" do
+      expect(task.instance_variable_get(:@created_at)).to be_a(DateTime)
     end
   end
+
 end
+
+
+
 
